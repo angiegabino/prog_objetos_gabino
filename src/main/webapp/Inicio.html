@@ -13,24 +13,32 @@ and open the template in the editor.
         <link rel="stylesheet" href="js/libs/twitter-bootstrap/css/bootstrap-theme.css"/>
         <script src="js/libs/jquery/jquery.js"></script>
         <script src="js/libs/twitter-bootstrap/js/bootstrap.js"></script>
-        
+       
+        <script type="text/javascript">
+            $(document).ready(function(){
+               $.ajax({
+                  url:'actualizar-trabajador',
+                  method: 'put',
+                  data: {
+                      id: '1',
+                      nombre: 'Angelica',
+                      paterno: 'Gabino',
+                      materno:'Meneses',
+                  }
+                  success: function(respuesta){
+                   $("#resultado-actualizacion").html(respuesta);   
+                  }
+               }) 
+            })
+        </script>
+
     </head>
-    <body>
-        <div class="row">
-            <div class="col-lg-3">
-                <label> Nombre </label>
-            </div>
-            <div class="col-lg-3">
-                <input type="text" class =" form-control" id="nombre" />
-        </div>
+    
+    <body>  
+    <a id = "actualiza-trabajador" class ="btn-warning"> Actualizar trabajador </a>
+    <div id="resultado-actualizacion"></div>
         
-        
-        
-        <label> Apellido Paterno </label>
-        <input type="text" class="form-control" id="paterno"/>
-        <label>Apellido Materno</label>
-        <input type="text" class="form-control" id="materno"/>
-        <a id="guardar-trabajador" class ="btn btn-default"> Guardar Trabajador </a>
-        <div id="resultado-guardar-trabajador"></div>
+
+
       </body> 
 </html>
